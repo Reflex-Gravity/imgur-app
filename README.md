@@ -1,4 +1,4 @@
-# imgur
+# Imgur App
 
 ## Project setup
 ```
