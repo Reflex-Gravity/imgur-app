@@ -36,9 +36,6 @@ export default {
     notify_selection() {
       this.$parent.$emit(this.onChange, this.selectedOption);
     },
-    isSelected(opt) {
-      return opt === this.defaultValue;
-    },
   },
   created() {
     this.selectedOption = this.selected;
