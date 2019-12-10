@@ -3,7 +3,13 @@
     <div class="d-flex p-4">
       Is Viral?
       <label class="checker ml-3">
-        <input class="checkbox" type="checkbox" />
+        <input
+          v-model="isViral"
+          id="isViral"
+          v-on:change="toggleViral"
+          class="checkbox"
+          type="checkbox"
+        />
         <div class="check-bg"></div>
         <div class="checkmark">
           <svg viewBox="0 0 100 100">
@@ -42,6 +48,7 @@ export default {
   },
   data() {
     return {
+      isViral: true,
       ...this.mapState({
         images: 'images',
       }),
@@ -59,6 +66,12 @@ export default {
         return image.link;
       }
       return '';
+    },
+    toggleViral() {
+      const formData = new FormData(document.getElementById('sortForm'));
+      const win = formData.get('window') !== null ? formData.get('window') : 'day';
+      const section = formData.get('section') !== null ? formData.get('section') : 'hot';
+      Fetcher.fetchImages(section, 'viral', win, this.isViral);
     },
   },
 };

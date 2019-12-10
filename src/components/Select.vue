@@ -1,7 +1,7 @@
 <template>
-  <div class="dropdown-wrapper">
+  <div class="dropdown-wrapper ml-3 mr-3">
     <label>{{label}}</label>
-    <select class="dropdown" v-model="selectedOption" v-on:change="notify_selection">
+    <select class="dropdown" :name="name" v-model="selectedOption" v-on:change="notify_selection">
       <option
         v-for="option in options"
         v-bind:key="option.value"
@@ -23,6 +23,7 @@ export default {
     label: String,
     onChange: String,
     defaultValue: String,
+    name: String,
   },
   data() {
     return {

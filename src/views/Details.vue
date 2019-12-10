@@ -3,7 +3,12 @@
     <div class="left-content col-8">
       <h1 class="title d-flex my-4">{{imageDetail.title}}</h1>
       <div class="gallery-wrapper">
-        <div class="image-wrapper" v-for="image in imageDetail.images" v-bind:key="image.id">
+        <div
+         class="image-wrapper"
+         :id="image.id"
+         v-for="image in imageDetail.images"
+         v-bind:key="image.id"
+        >
           <img class="image" :src="image.link" />
           <div class="description-wrapper">
             <p class="description">{{image.description}}</p>
@@ -11,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="right-content col-4 d-flex align-items-center flex-column">
+    <div class="right-content ml-3 col-4 d-flex align-items-center flex-column">
       <div class="votes d-flex">
         <div class="upvote">
           <i class="fa fa-arrow-up"></i>
@@ -73,15 +78,16 @@ export default {
     max-width: 100%;
   }
 
-  body{
-    background: #141518 !important;
-  }
-
   .details{
-    background: var(--darkGray)
+    padding-bottom: 50px;
+    background: #141518;
+    padding: 10px;
   }
-
+  .left-content{
+    background: var(--darkGray);
+  }
   .right-content{
+    background: var(--darkGray);
     color: #fff;
     padding-top: 100px;
   }

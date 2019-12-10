@@ -1,19 +1,25 @@
 <template>
   <nav id="nav" class="header fixed-top">
     <div class="left-nav">
-      <img src="@/assets/Logo.svg"/>
+      <router-link to="/">
+        <img src="@/assets/Logo.svg"/>
+      </router-link>
     </div>
     <div class="right-nav row">
-      <Select
-        :options="windowOptions"
-        onChange="updateWindow"
-        defaultValue="day"
-      />
-      <Select
-        :options="sectionOptions"
-        onChange="updateWindow"
-        defaultValue="hot"
-      />
+      <form class="row" id="sortForm">
+        <Select
+          :options="windowOptions"
+          onChange="updateWindow"
+          defaultValue="day"
+          name="window"
+        />
+        <Select
+          :options="sectionOptions"
+          onChange="updateSection"
+          defaultValue="hot"
+          name="section"
+        />
+      </form>
       <!-- <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link> -->
     </div>
@@ -24,6 +30,7 @@
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 import Select from '@/components/Select.vue';
+import * as Fetcher from '../fetcher/api';
 
 export default {
   name: 'Header',
@@ -52,10 +59,18 @@ export default {
     this.$on('updateWindow', (selection) => {
       this.windowSelected = selection;
       // Hit API for
+      const formData = new FormData(document.getElementById('sortForm'));
+      const win = formData.get('window') !== null ? formData.get('window') : 'day';
+      const section = formData.get('section') !== null ? formData.get('section') : 'hot';
+      Fetcher.fetchImages(section, 'viral', win, 'true');
     });
     this.$on('updateSection', (selection) => {
       this.sectionSelected = selection;
+      const formData = new FormData(document.getElementById('sortForm'));
+      const win = formData.get('window') !== null ? formData.get('window') : 'day';
+      const section = formData.get('section') !== null ? formData.get('section') : 'hot';
       // Hit API for
+      Fetcher.fetchImages(section, 'viral', win, 'true');
     });
   },
 };

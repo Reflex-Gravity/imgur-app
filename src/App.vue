@@ -34,7 +34,7 @@ export default {
 }
 
 body{
-  background: var(--primary) !important;
+  background: #141518 !important;
 }
 
 #app {

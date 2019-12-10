@@ -14,7 +14,7 @@ export function fetchImages(section = 'hot', sort = 'viral', win = 'day', isVira
       Authorization: 'Client-ID 43dadb06d03a566',
     },
   };
-
+  store.dispatch(Actions.setImages([]));
   axios(options)
     .then((response) => {
       const { data } = response;
