@@ -1,7 +1,7 @@
 <template>
   <div class="details container d-flex">
     <div class="left-content col-8">
-      <h1 class="title">{{imageDetail.title}}</h1>
+      <h1 class="title d-flex my-4">{{imageDetail.title}}</h1>
       <div class="gallery-wrapper">
         <div class="image-wrapper" v-for="image in imageDetail.images" v-bind:key="image.id">
           <img class="image" :src="image.link" />
@@ -11,19 +11,19 @@
         </div>
       </div>
     </div>
-    <div class="right-content d-flex col-4">
-      <div class="votes">
+    <div class="right-content col-4 d-flex align-items-center flex-column">
+      <div class="votes d-flex">
         <div class="upvote">
-          <span class="upvote-icon"></span>
-          <span>{{imageDetail.ups}}</span>
+          <i class="fa fa-arrow-up"></i>
+          <span class="ml-1">{{imageDetail.ups}}</span>
         </div>
-        <span class="downvote">
-          <span class="upvote-icon"></span>
-          <span>{{imageDetail.downs}}</span>
+        <span class="downvote ml-5">
+          <i class="fa fa-arrow-down"></i>
+          <span class="ml-1">{{imageDetail.downs}}</span>
         </span>
       </div>
-      <div class="score">
-        <span> Score {{imageDetail.score}}</span>
+      <div class="score mt-3">
+        <span>Score: {{imageDetail.score}}</span>
       </div>
     </div>
   </div>
@@ -65,25 +65,29 @@ export default {
 </script>
 
 <style scoped>
+  .title {
+    font-size: 20px;
+  }
 
   .image{
     max-width: 100%;
   }
 
   body{
-    background: var(--primary)
+    background: #141518 !important;
   }
 
-  .left-content{
-    background: var(--gray)
-  }
-
-  .upvote-icon{
-    background-image: url("/img/icons/arrow_down.png")
+  .details{
+    background: var(--darkGray)
   }
 
   .right-content{
     color: #fff;
+    padding-top: 100px;
+  }
+
+  .votes i, .votes span, .score {
+    font-size: 30px;
   }
 
 </style>
