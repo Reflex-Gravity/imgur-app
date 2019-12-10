@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <Header />
     <div>
       <router-view />
@@ -41,7 +41,7 @@ body{
   text-align: center;
   color: #fff;
   background: var(--primary);
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 </style>

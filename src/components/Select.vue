@@ -6,7 +6,6 @@
         v-for="option in options"
         v-bind:key="option.value"
         :value="option.value"
-        :selected="defaultValue == option.value"
       >
         {{option.name}}
       </option>
@@ -27,12 +26,18 @@ export default {
   },
   data() {
     return {
-      selectedOption: '',
+      selectedOption: this.defaultValue,
     };
+  },
+  mounted() {
+    this.selectedOption = this.defaultValue;
   },
   methods: {
     notify_selection() {
       this.$parent.$emit(this.onChange, this.selectedOption);
+    },
+    isSelected(opt) {
+      return opt === this.defaultValue;
     },
   },
   created() {

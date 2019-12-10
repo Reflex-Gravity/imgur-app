@@ -9,7 +9,18 @@
          v-for="image in imageDetail.images"
          v-bind:key="image.id"
         >
-          <img class="image" :src="image.link" />
+          <img v-if="['image/jpeg', 'image/png'].includes(image.type)"
+           class="image" :src="image.link" />
+          <video
+            class="image"
+            autoplay
+            controls
+            v-if="[
+            'video/mp4', 'video/webm', 'video/x-matroska',
+            'video/quicktime', 'video/x-flv', 'video/mpeg'].includes(image.type)"
+          >
+            <source :src="image.link">
+          </video>
           <div class="description-wrapper">
             <p class="description">{{image.description}}</p>
           </div>
