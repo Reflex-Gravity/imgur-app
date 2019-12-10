@@ -21,7 +21,6 @@ export function fetchImages(section = 'hot', sort = 'viral', win = 'day', isVira
       if (data.status === 200 && data.success === true) {
         store.dispatch(Actions.setImages(data.data));
       }
-      console.log(response);
     });
 }
 
@@ -41,6 +40,5 @@ export function fetchImageDetails(albumHash) {
       if (data.status === 200 && data.success === true) {
         store.dispatch(Actions.setImageDetails(data.data));
       }
-      console.log(response);
     });
 }

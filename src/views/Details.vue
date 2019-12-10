@@ -1,6 +1,6 @@
 <template>
   <div class="details container d-flex">
-    <div class="left-content col-8">
+    <div class="left-content col-8" v-if="imageDetail">
       <h1 class="title d-flex my-4">{{imageDetail.title}}</h1>
       <div class="gallery-wrapper">
         <div
@@ -9,7 +9,7 @@
          v-for="image in imageDetail.images"
          v-bind:key="image.id"
         >
-          <img v-if="['image/jpeg', 'image/png'].includes(image.type)"
+          <img v-if="['image/jpeg', 'image/png', 'image/gif'].includes(image.type)"
            class="image" :src="image.link" />
           <video
             class="image"
@@ -79,6 +79,12 @@ export default {
 };
 
 </script>
+
+<style>
+  #app {
+    background: transparent;
+  }
+</style>
 
 <style scoped>
   .title {
