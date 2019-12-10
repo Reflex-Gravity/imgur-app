@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <router-view />
+    <div>
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -20,6 +22,8 @@ export default {
 
 :root {
   --primary: #34373c;
+  --darkBlue: #171544;
+  --gray: #56585f;
 }
 
 #app, body, * {
@@ -28,9 +32,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body{
+  background: var(--primary) !important;
+}
+
 #app {
   text-align: center;
-  color: var(--primary);
+  color: #fff;
+  background: var(--primary);
+  margin-top: 50px;
 }
 
 </style>

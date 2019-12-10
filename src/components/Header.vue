@@ -1,5 +1,5 @@
 <template>
-  <nav id="nav" class="header">
+  <nav id="nav" class="header fixed-top">
     <div class="left-nav">
       <img src="@/assets/Logo.svg"/>
     </div>
@@ -69,7 +69,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--primary);
+  background: var(--darkBlue);
   color: #fff;
 }
 
