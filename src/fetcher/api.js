@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../store';
 import * as Actions from '../store/actions';
-// const clientID = '43dadb06d03a566';
+// const clientID = '43dadb06d03a56a';
 
 // axios.defaults.headers.common.Authorization = `Client-ID ${clientID}`;
 
@@ -11,7 +11,7 @@ export function fetchImages(section = 'hot', sort = 'viral', win = 'day', isVira
   const options = {
     url,
     headers: {
-      Authorization: 'Client-ID 43dadb06d03a566',
+      Authorization: 'Client-ID 43dadb06d03a56a',
     },
   };
   store.dispatch(Actions.setImages([]));
@@ -30,7 +30,7 @@ export function fetchImageDetails(albumHash) {
   const options = {
     url,
     headers: {
-      Authorization: 'Client-ID 43dadb06d03a566',
+      Authorization: 'Client-ID 43dadb06d03a56a',
     },
   };
 
