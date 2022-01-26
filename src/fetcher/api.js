@@ -11,17 +11,16 @@ export function fetchImages(section = 'hot', sort = 'viral', win = 'day', isVira
   const options = {
     url,
     headers: {
-      Authorization: 'Client-ID 43dadb06d03a56a',
+      Authorization: 'Client-ID 602204bf3ec8f1a',
     },
   };
   store.dispatch(Actions.setImages([]));
-  axios(options)
-    .then((response) => {
-      const { data } = response;
-      if (data.status === 200 && data.success === true) {
-        store.dispatch(Actions.setImages(data.data));
-      }
-    });
+  axios(options).then((response) => {
+    const { data } = response;
+    if (data.status === 200 && data.success === true) {
+      store.dispatch(Actions.setImages(data.data));
+    }
+  });
 }
 
 export function fetchImageDetails(albumHash) {
@@ -30,15 +29,14 @@ export function fetchImageDetails(albumHash) {
   const options = {
     url,
     headers: {
-      Authorization: 'Client-ID 43dadb06d03a56a',
+      Authorization: 'Client-ID 602204bf3ec8f1a',
     },
   };
 
-  axios(options)
-    .then((response) => {
-      const { data } = response;
-      if (data.status === 200 && data.success === true) {
-        store.dispatch(Actions.setImageDetails(data.data));
-      }
-    });
+  axios(options).then((response) => {
+    const { data } = response;
+    if (data.status === 200 && data.success === true) {
+      store.dispatch(Actions.setImageDetails(data.data));
+    }
+  });
 }
